@@ -10,7 +10,7 @@ app.use(express.static('public'));
 
 let queue = [];
 const userRooms = new Map();
-
+app.use(express.static(__dirname));
 function joinQueue(user) {
     if (!queue.some(u => u.id === user.id)) {
         queue.push(user);
