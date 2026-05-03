@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AlphaSwipe - WebRTC P2P</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="app-container">
+
+        <div id="video-container">
+            <!-- Vidéo distante en plein écran -->
+            <video id="remote-video" autoplay playsinline></video>
+
+            <!-- Vidéo locale de l'utilisateur (incrustée en haut à droite) -->
+            <video id="local-video" autoplay playsinline muted class="hidden"></video>
+
+            <!-- Boutons de contrôle (Micro, Next, Caméra) par dessus -->
+            <div id="controls" class="hidden">
+                <button id="toggle-mic-btn" class="control-btn"><i class="fas fa-microphone"></i></button>
+                <button id="next-btn" class="control-btn next-btn"><i class="fas fa-forward-step"></i> Passer</button>
+                <button id="toggle-cam-btn" class="control-btn"><i class="fas fa-video"></i></button>
+            </div>
+            <!-- Carte Swipe pour rentrer en file d'attente -->
+            <div id="swipe-overlay">
+                <div id="swipe-card">
+                    <div class="card-content">
+                        <i class="fas fa-fire pulse-icon"></i>
+                        <h2>AlphaSwipe</h2>
+                        <p class="instruction">
+                            <span class="swipe-badge right">Swipe Droite <i class="fas fa-arrow-right"></i></span><br>
+                            pour chercher un partenaire
+                        </p>
+                        <button id="start-btn" class="btn primary-btn">Démarrer</button>
+                    </div>
+                </div>
+                
+                <div id="status-text" class="hidden">
+                    <i class="fas fa-satellite-dish fa-spin"></i> Recherche...
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
